@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "render-build": "CI=true NODE_OPTIONS=--max-old-space-size=412 vite build",
+    "start": "npx serve -s dist",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
