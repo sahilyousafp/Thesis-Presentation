@@ -10,8 +10,9 @@ import clsx from 'clsx'
 
 // --- 3D Scene Controller ---
 function SceneLogic({ tabIndex }: { tabIndex: number }) {
-    const { camera, scene } = useThree()
+    const { camera, scene, size } = useThree()
     const cityRef = useRef<THREE.Group>(null)
+    const isMobile = size.width < 768
     const currentProgress = useRef(0)
     const lastOpacity = useRef(1)
 
@@ -29,8 +30,15 @@ function SceneLogic({ tabIndex }: { tabIndex: number }) {
         const introPos = new THREE.Vector3(40, 30, 40)
         // Offset slightly to avoid gimbal lock while keeping up=(0,1,0)
         const litPos = new THREE.Vector3(0.01, 90, 0.01) 
-        const nextPos = new THREE.Vector3(45, 1.5, 35) 
-        const nextLookAt = new THREE.Vector3(60, 3, 26)
+        
+        // Adjust "Next Steps" camera for mobile
+        const nextPos = isMobile 
+            ? new THREE.Vector3(42, 2, 35)  // Shifted left/back for mobile
+            : new THREE.Vector3(45, 1.5, 35) 
+            
+        const nextLookAt = isMobile
+            ? new THREE.Vector3(55, 3, 28)  // Adjusted lookAt for mobile
+            : new THREE.Vector3(60, 3, 26)
         
         let targetPos = new THREE.Vector3()
         let targetLookAt = new THREE.Vector3(0,0,0)
