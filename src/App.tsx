@@ -153,14 +153,14 @@ function App() {
       </div>
 
       {/* Navigation - Fixed Top */}
-      <header className="relative z-50 pt-8 px-8 flex justify-center">
-        <nav className="bg-black/40 backdrop-blur-xl px-2 py-2 rounded-full border border-white/10 flex gap-2 shadow-2xl transition-all">
+      <header className="relative z-50 pt-4 md:pt-8 px-4 md:px-8 flex justify-center">
+        <nav className="bg-black/40 backdrop-blur-xl px-1.5 py-1.5 md:px-2 md:py-2 rounded-full border border-white/10 flex gap-1 md:gap-2 shadow-2xl transition-all">
           {SECTIONS.map((item, index) => (
             <button 
               key={item.id}
               onClick={() => setActiveTab(index)}
               className={clsx(
-                "px-6 py-2 rounded-full text-sm font-bold tracking-tight transition-all duration-300",
+                "px-3 py-1.5 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold tracking-tight transition-all duration-300",
                 activeTab === index 
                   ? "bg-white text-black shadow-[0_0_20px_rgba(255,255,255,0.3)] transform scale-105" 
                   : "text-gray-400 hover:text-white hover:bg-white/5"
@@ -173,7 +173,7 @@ function App() {
       </header>
 
       {/* Main Content Area */}
-      <main className="relative z-10 flex-1 w-full max-w-5xl mx-auto mt-8 px-4 overflow-hidden">
+      <main className="relative z-10 flex-1 w-full max-w-5xl mx-auto mt-4 md:mt-8 px-4 overflow-hidden">
         <AnimatePresence mode="wait">
             <motion.div
                 key={activeTab}
@@ -191,18 +191,18 @@ function App() {
                     
                     {activeTab === 0 && (
                         <div className="min-h-[120%] pb-20 pt-10">
-                            <h1 className="text-8xl font-black mb-8 text-white tracking-tighter">Introduction</h1>
-                            <p className="text-3xl text-gray-400 mb-12 max-w-2xl font-light leading-snug">
-                               Understanding the <strong className="text-white">Urban Fabric</strong> through artificial agents.
+                            <h1 className="text-5xl md:text-8xl font-black mb-8 text-white tracking-tighter">Introduction</h1>
+                            <p className="text-xl md:text-3xl text-gray-400 mb-12 max-w-2xl font-light leading-snug">
+                                Understanding the <strong className="text-white">Urban Fabric</strong> through artificial agents.
                             </p>
-                            <div className="grid grid-cols-2 gap-8 mb-8">
-                                <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-2xl">
-                                     <h3 className="font-bold text-xl mb-4 text-white uppercase tracking-widest text-xs opacity-50">Relevance</h3>
-                                     <p className="text-gray-300 text-lg">Simulating social interactions to predict urban vitality.</p>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mb-8">
+                                <div className="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl">
+                                     <h3 className="font-bold mb-4 text-white uppercase tracking-widest text-[10px] md:text-xs opacity-50">Relevance</h3>
+                                     <p className="text-gray-300 text-base md:text-lg">Simulating social interactions to predict urban vitality.</p>
                                 </div>
-                                <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-2xl">
-                                     <h3 className="font-bold text-xl mb-4 text-white uppercase tracking-widest text-xs opacity-50">Outcome</h3>
-                                     <p className="text-gray-300 text-lg">A generative framework for architectural decision making.</p>
+                                <div className="bg-white/5 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-white/10 shadow-2xl">
+                                     <h3 className="font-bold mb-4 text-white uppercase tracking-widest text-[10px] md:text-xs opacity-50">Outcome</h3>
+                                     <p className="text-gray-300 text-base md:text-lg">A generative framework for architectural decision making.</p>
                                 </div>
                             </div>
                         </div>
@@ -210,16 +210,16 @@ function App() {
 
                     {activeTab === 1 && (
                         <div className="min-h-[120%] pb-20 pt-10">
-                            <h1 className="text-8xl font-black mb-12 text-white tracking-tighter">Literature</h1>
-                            <div className="space-y-12">
-                                <div className="bg-white/5 backdrop-blur-md p-10 rounded-3xl border border-white/10 shadow-2xl">
-                                    <h3 className="text-4xl font-bold text-white mb-4">State of the Art</h3>
-                                    <p className="text-xl text-gray-400 leading-relaxed">
+                            <h1 className="text-5xl md:text-8xl font-black mb-12 text-white tracking-tighter">Literature</h1>
+                            <div className="space-y-8 md:space-y-12">
+                                <div className="bg-white/5 backdrop-blur-md p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl">
+                                    <h3 className="text-2xl md:text-4xl font-bold text-white mb-4">State of the Art</h3>
+                                    <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
                                         Traditional ABM focuses on physical collision. We focus on <span className="text-white font-bold underline decoration-thesis-secondary decoration-4 underline-offset-8">social collision</span>.
                                     </p>
                                 </div>
-                                <div className="h-96 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
-                                    <span className="text-gray-600 font-bold text-xl uppercase tracking-widest opacity-30">Diagram Prototype</span>
+                                <div className="h-64 md:h-96 bg-white/5 border border-white/10 rounded-3xl flex items-center justify-center">
+                                    <span className="text-gray-600 font-bold text-lg md:text-xl uppercase tracking-widest opacity-30">Diagram Prototype</span>
                                 </div>
                             </div>
                         </div>
@@ -227,15 +227,15 @@ function App() {
 
                     {activeTab === 2 && (
                         <div className="min-h-[120%] pb-20 pt-10 text-white">
-                            <h1 className="text-8xl font-black mb-12 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-gray-600 tracking-tighter">Experiments</h1>
-                            <div className="grid grid-cols-1 gap-12">
-                                <div className="bg-white/5 backdrop-blur-xl p-10 rounded-3xl border border-white/10 shadow-2xl">
-                                    <h3 className="text-3xl font-bold mb-4">Agent Trails</h3>
-                                    <p className="text-lg text-gray-400">Visualizing high-frequency paths through the Eixample grid.</p>
+                            <h1 className="text-5xl md:text-8xl font-black mb-8 md:mb-12 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-gray-600 tracking-tighter">Experiments</h1>
+                            <div className="grid grid-cols-1 gap-8 md:gap-12">
+                                <div className="bg-white/5 backdrop-blur-xl p-6 md:p-10 rounded-3xl border border-white/10 shadow-2xl">
+                                    <h3 className="text-2xl md:text-3xl font-bold mb-4">Agent Trails</h3>
+                                    <p className="text-base md:text-lg text-gray-400">Visualizing high-frequency paths through the Eixample grid.</p>
                                 </div>
-                                <div className="bg-white/5 border border-white/10 h-[500px] rounded-3xl overflow-hidden">
+                                <div className="bg-white/5 border border-white/10 h-[300px] md:h-[500px] rounded-3xl overflow-hidden">
                                      <div className="w-full h-full flex items-center justify-center bg-gradient-to-b from-transparent to-black/40">
-                                        <span className="text-gray-500 font-mono text-sm uppercase tracking-[0.5em]">Realtime Flow Data</span>
+                                        <span className="text-gray-500 font-mono text-xs md:text-sm uppercase tracking-[0.5em]">Realtime Flow Data</span>
                                      </div>
                                 </div>
                             </div>
@@ -243,16 +243,16 @@ function App() {
                     )}
 
                     {activeTab === 3 && (
-                        <div className="min-h-[120%] pb-20 pt-10 flex flex-col items-end">
-                            <h1 className="text-8xl font-black mb-12 text-white tracking-tighter text-right w-full">Next Steps</h1>
-                            <div className="bg-black/60 backdrop-blur-2xl p-10 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 w-full max-w-xl">
-                                <h3 className="text-3xl font-bold mb-6 text-white">Human Interaction</h3>
-                                <p className="text-xl text-gray-400 mb-8 leading-relaxed">
+                        <div className="min-h-[120%] pb-20 pt-10 flex flex-col items-center md:items-end">
+                            <h1 className="text-5xl md:text-8xl font-black mb-12 text-white tracking-tighter text-center md:text-right w-full">Next Steps</h1>
+                            <div className="bg-black/60 backdrop-blur-2xl p-6 md:p-10 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-white/10 w-full max-w-xl">
+                                <h3 className="text-2xl md:text-3xl font-bold mb-6 text-white">Human Interaction</h3>
+                                <p className="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed">
                                     Integrating nuanced non-verbal cues and multi-agent conversation logic.
                                 </p>
                                 <div className="flex gap-4">
-                                    <div className="h-32 flex-1 bg-white/5 rounded-2xl border border-white/5"></div>
-                                    <div className="h-32 flex-1 bg-white/5 rounded-2xl border border-white/5"></div>
+                                    <div className="h-24 md:h-32 flex-1 bg-white/5 rounded-2xl border border-white/5"></div>
+                                    <div className="h-24 md:h-32 flex-1 bg-white/5 rounded-2xl border border-white/5"></div>
                                 </div>
                             </div>
                         </div>
